@@ -1,1 +1,3 @@
-# 20_vanilla_Javascript_projects
+# 20 vanilla Javascript projects
+
+Course by Brad Traversy
