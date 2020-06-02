@@ -1,0 +1,111 @@
+:root {
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body,
+input,
+button {
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+
+body {
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.3);
+    width: 40rem;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 2rem 0;
+}
+
+.form {
+    padding: 3rem 4rem;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+
+.form-control label {
+    color: #777777;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control label {
+    color: #777777;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control input {
+    border: 0.2rem solid #f0f0f0;
+    border-radius: 0.4rem;
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+.form-control input:focus {
+    outline: 0;
+    border-color: #777777;
+}
+
+.form-control.success input {
+    border-color: var(--success-color);
+}
+
+.form-control.error input {
+    border-color: var(--error-color);
+}
+
+.form-control small {
+    color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.form button {
+    cursor: pointer;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 0.4rem;
+    color: #ffffff;
+    display: block;
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+}
