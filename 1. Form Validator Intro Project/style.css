@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 :root {
     --success-color: #2ecc71;
     --error-color: #e74c3c;
@@ -14,7 +16,7 @@ html {
 body,
 input,
 button {
-    font-family: Ubuntu, Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     color: #333333;
 }
