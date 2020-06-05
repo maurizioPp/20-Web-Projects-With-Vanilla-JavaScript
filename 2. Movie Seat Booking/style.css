@@ -43,6 +43,7 @@ body {
 
 /* LEGEND */
 .legend {
+    cursor: default;
     background: rgba(0, 0, 0, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -63,7 +64,7 @@ body {
 }
 
 /* THEATRE */
-.container {
+.theatre {
     perspective: 100rem;
     margin-bottom: 3rem;
 }
