@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #666666;
+}
+h1 {
+    color: #ffffff;
+}
+.screen {
+    cursor: pointer;
+    width: 50%;
+    background-color: #000000 !important;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+}
+.controls {
+    background-color: #333333;
+    color: #ffffff;
+    width: 50%;
+    border-bottom-left-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    padding: 1rem;
+}
+.controls .btn {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+.controls .btn:focus {
+    outline: 0;
+}
+.controls .fa-play {
+    color: #28a745;
+}
+.controls .fa-stop {
+    color: #bc3545;
+}
+.controls .fa-pause {
+    color: #ffffff;
+}
+.controls .timestamp {
+    color: #ffffff;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+/* MOBILE */
+@media(max-width: 800px) {
+    .screen,
+    .controls {
+        width: 90%;
+    }
+}
