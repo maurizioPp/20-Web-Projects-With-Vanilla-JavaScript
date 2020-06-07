@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
+body,
+button {
+    font-family: Ubuntu, Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 1.3rem;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    padding: 2rem;
+    max-width: 100%;
+    width: 80rem;
+}
+
+aside {
+    padding: 1rem 2rem;
+    width: 25rem;
+    border-right: 1px solid #999999;
+}
+
+button {
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+    border-radius: 0.2rem;
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+main {
+    padding: 1rem 2rem;
+    flex: 1;
+}
+
+h2,
+h3 {
+    border-bottom: 1px solid #999999;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: normal;
+    margin: 0 0 2rem 0;
+}
+
+h3 {
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 2rem 0 0 0;
+}
+
+.person {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
