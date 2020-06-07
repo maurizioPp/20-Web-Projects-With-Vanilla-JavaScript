@@ -1,10 +1,14 @@
-// UI VARIABLES
-const mainElement = document.getElementById("main");
+// INTERFACE VARIABLES
+const output = document.getElementById("output");
 const addUserButton = document.getElementById("add-user");
 const doubleButton = document.getElementById("double");
 const showMillionairesButton = document.getElementById("show-millionaires");
 const sortButton = document.getElementById("sort");
 const calculateWealthButton = document.getElementById("calculate-wealth");
+
+
+
+// FUNCTIONS
 
 // create empty data array
 let data = [];
@@ -29,6 +33,30 @@ async function getRandomUser() {
 // Add Data - push object to data array
 function addData(object) {
     data.push(object);
+    // update interface with default data
+    updateInterface();
 }
 
-getRandomUser();
+// Update Interface
+function updateInterface(providedData = data) {
+    // set output to default content
+    output.innerHTML = "<h2><strong>Person</strong> Wealth</h2>";
+    // loop through provided data
+    providedData.forEach(person => {
+        const element = document.createElement("div");
+        element.classList.add("person");
+        element.innerHTML = `<strong>${person.name}</strong> ${formatMoney(person.money)}`;
+        output.appendChild(element);
+    });
+}
+
+// Format Money - format number as money
+function formatMoney(number) {
+    // https://stackoverflow.com/a/14428340/12792462
+    return `${number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} USD`;
+}
+
+
+
+// EVENT LISTENERS
+addUserButton.addEventListener("click", getRandomUser);
