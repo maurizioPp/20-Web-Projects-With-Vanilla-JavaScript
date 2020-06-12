@@ -20,6 +20,7 @@
     <!-- Main -->
     <main>
         <div class="game-container">
+            <!-- hangman image -->
             <svg width="200" height="250" class="figure-container">
                 <!-- rod -->
                 <line x1="60" y1="20" x2="140" y2="20" />
@@ -39,8 +40,27 @@
                 <!-- right leg -->
                 <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
             </svg>
+            <!-- wrong letters -->
+            <div class="wrong-letters-container">
+                <div id="wrong-letters"></div>
+            </div>
+            <!-- guessed word -->
+            <div id="word" class="word">
+            </div>
         </div>
     </main>
+
+    <!-- game end pop-up -->
+    <div id="pop-up-container" class="pop-up-container">
+        <div class="pop-up">
+            <h2 id="pop-up-header"></h2>
+            <button id="play-again-button">Play Again</button>
+        </div>
+    </div>
+    <!-- notification -->
+    <div id="notification" class="notification">
+        <p>You have already entered this letter.</p>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
