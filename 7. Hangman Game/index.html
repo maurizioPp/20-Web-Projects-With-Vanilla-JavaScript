@@ -17,47 +17,46 @@
         <p>Find the hidden word - Enter a letter</p>
     </header>
 
-    <!-- Main -->
-    <main>
-        <div class="game-container">
-            <!-- hangman image -->
-            <svg width="200" height="250" class="figure-container">
-                <!-- rod -->
-                <line x1="60" y1="20" x2="140" y2="20" />
-                <line x1="140" y1="20" x2="140" y2="50" />
-                <line x1="60" y1="20" x2="60" y2="230" />
-                <line x1="20" y1="230" x2="100" y2="230" />
-                <!-- head -->
-                <circle cx="140" cy="70" r="20" class="figure-part" />
-                <!-- body -->
-                <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
-                <!-- left arm -->
-                <line x1="140" y1="120" x2="120" y2="100" class="figure-part" />
-                <!-- right arm -->
-                <line x1="140" y1="120" x2="160" y2="100" class="figure-part" />
-                <!-- left leg -->
-                <line x1="140" y1="150" x2="120" y2="180" class="figure-part" />
-                <!-- right leg -->
-                <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
-            </svg>
-            <!-- wrong letters -->
-            <div class="wrong-letters-container">
-                <div id="wrong-letters"></div>
-            </div>
-            <!-- guessed word -->
-            <div id="word" class="word">
-            </div>
+    <!-- Game -->
+    <div class="game-container">
+        <!-- hangman image -->
+        <svg width="200" height="250" class="figure-container">
+            <!-- rod -->
+            <line x1="60" y1="20" x2="140" y2="20" />
+            <line x1="140" y1="20" x2="140" y2="50" />
+            <line x1="60" y1="20" x2="60" y2="230" />
+            <line x1="20" y1="230" x2="100" y2="230" />
+            <!-- head -->
+            <circle cx="140" cy="70" r="20" class="figure-part" />
+            <!-- body -->
+            <line x1="140" y1="90" x2="140" y2="150" class="figure-part" />
+            <!-- left arm -->
+            <line x1="140" y1="120" x2="120" y2="100" class="figure-part" />
+            <!-- right arm -->
+            <line x1="140" y1="120" x2="160" y2="100" class="figure-part" />
+            <!-- left leg -->
+            <line x1="140" y1="150" x2="120" y2="180" class="figure-part" />
+            <!-- right leg -->
+            <line x1="140" y1="150" x2="160" y2="180" class="figure-part" />
+        </svg>
+        <!-- wrong letters -->
+        <div class="wrong-letters-container">
+            <div id="wrong-letters"></div>
         </div>
-    </main>
+        <!-- guessed word -->
+        <div id="word" class="word">
+        </div>
+    </div>
 
-    <!-- game end pop-up -->
+    <!-- Pop-up -->
     <div id="pop-up-container" class="pop-up-container">
         <div class="pop-up">
             <h2 id="pop-up-header"></h2>
             <button id="play-again-button">Play Again</button>
         </div>
     </div>
-    <!-- notification -->
+
+    <!-- Notification -->
     <div id="notification" class="notification">
         <p>You have already entered this letter.</p>
     </div>
