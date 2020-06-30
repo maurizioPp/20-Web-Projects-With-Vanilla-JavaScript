@@ -1,6 +1,7 @@
 // INTERFACE
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
+const randomButton = document.getElementById("random-button");
 const resultHeading = document.getElementById("result-heading");
 const mealsElement = document.getElementById("meals");
 const singleMealElement = document.getElementById("single-meal");
@@ -106,12 +107,31 @@ function addMealToDOM(meal) {
     `;
 }
 
+// Get random meal
+function getRandomMeal() {
+    // clear
+    mealsElement.innerHTML = "";
+    resultHeading.innerHTML = "";
+    // fetch
+    fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+        // convert to JSON
+        .then(response => response.json())
+        // get data
+        .then(data => {
+            const meal = data.meals[0];
+            addMealToDOM(meal);
+        })
+}
+
 
 
 // EVENT LISTENERS
 
 // Search button
 searchButton.addEventListener("click", searchMeal);
+
+// Random button
+randomButton.addEventListener("click", getRandomMeal);
 
 // Meals
 mealsElement.addEventListener("click", eventObject => {
