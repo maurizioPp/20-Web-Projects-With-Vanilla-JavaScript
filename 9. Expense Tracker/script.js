@@ -27,7 +27,7 @@ let transactions = dummyTransactions;
 // FUNCTIONS
 
 // Add transaction to interface list
-function addTransactionToInterface(transaction) {
+function addTransaction(transaction) {
     // get plus or minus
     const sign = transaction.amount < 0 ? "-" : "+";
     // create list item
@@ -48,7 +48,43 @@ function initializeApplication() {
     // clear interface list
     list.innerHTML = "";
     // loop through transactions
-    transactions.forEach(addTransactionToInterface);
+    transactions.forEach(addTransaction);
+    // update interface
+    updateValues();
+}
+
+// Update balance, income and expense
+function updateValues() {
+    // get amounts
+    const amounts = transactions.map(transaction => transaction.amount);
+    // get total
+    // by adding all values together
+    // and two decimal places
+    const total = amounts
+        .reduce((accumulator, item) => (accumulator += item), 0)
+        .toFixed(2);
+    // get income
+    // by filtering all positive values
+    // and adding them together
+    // and two decimal places
+    const income = amounts
+        .filter(item => item > 0)
+        .reduce((accumulator, item) => (accumulator += item), 0)
+        .toFixed(2);
+    // get expense
+    // by filtering all negative values
+    // and adding them together
+    // and making result negative
+    // and two decimal places
+    const expense = (amounts
+        .filter(item => item < 0)
+        .reduce((accumulator, item) => (accumulator += item), 0)
+        * -1)
+        .toFixed(2);
+    // display in interface
+    balance.innerText = `$${total}`;
+    moneyPlus.innerText = `$${income}`;
+    moneyMinus.innerText = `$${expense}`;
 }
 
 
