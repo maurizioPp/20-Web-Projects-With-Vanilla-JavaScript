@@ -26,8 +26,39 @@ let transactions = dummyTransactions;
 
 // FUNCTIONS
 
-// Add transaction to interface list
-function addTransaction(transaction) {
+// Add transaction
+function addTransaction(eventObject) {
+    // prevent default behaviour
+    eventObject.preventDefault();
+    // check if empty input
+    if (text.value.trim() === "" || amount.value.trim() === "") {
+        alert("Please fill both the text and the amount.");
+    } else {
+        // create transaction object
+        const transaction = {
+            id: generateID(),
+            text: text.value,
+            amount: Number(amount.value),
+        }
+        // push into array
+        transactions.push(transaction);
+        // display in list
+        displayTransaction(transaction);
+        // update interface
+        updateValues();
+        // clear input
+        text.value = "";
+        amount.value = "";
+    }
+}
+
+// Generate random ID
+function generateID() {
+    return Math.floor(Math.random() * 1000000);
+}
+
+// Display transaction in interface list
+function displayTransaction(transaction) {
     // get plus or minus
     const sign = transaction.amount < 0 ? "-" : "+";
     // create list item
@@ -37,10 +68,18 @@ function addTransaction(transaction) {
     // add amount
     listItem.innerHTML = `
         ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span>
-        <button class="delete-button">x</button>
+        <button class="delete-button" onclick="removeTransaction(${transaction.id})">x</button>
     `;
     // add to interface list
     list.appendChild(listItem);
+}
+
+// Remove transaction
+function removeTransaction(id) {
+    // filter out transaction by ID
+    transactions = transactions.filter(transaction => transaction.id !== id);
+    // re-initialize application
+    initializeApplication();
 }
 
 // Initialize application
@@ -48,7 +87,7 @@ function initializeApplication() {
     // clear interface list
     list.innerHTML = "";
     // loop through transactions
-    transactions.forEach(addTransaction);
+    transactions.forEach(displayTransaction);
     // update interface
     updateValues();
 }
@@ -91,6 +130,8 @@ function updateValues() {
 
 // EVENT LISTENERS
 
+// Add transaction
+form.addEventListener("submit", addTransaction);
 
 
 // CALLS
