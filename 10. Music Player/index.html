@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Music Player</title>
+</head>
+
+<body>
+    <h1>Music Player</h1>
+    <div id="music-container" class="music-container">
+        <div class="music-info">
+            <h4 id="title"></h4>
+            <div id="progress-container" class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <audio id="audio" src="music/ukulele.mp3"></audio>
+
+        <div class="image-container">
+            <img id="song-cover" src="images/ukulele.jpg" alt="song-cover">
+        </div>
+
+        <div class="navigation">
+            <button id="previous" class="action-button">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+            <button id="play" class="action-button-big">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-button">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
