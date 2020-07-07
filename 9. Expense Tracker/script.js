@@ -11,16 +11,11 @@ const amount = document.getElementById("amount");
 
 // GLOBAL
 
-// Dummy transactions
-const dummyTransactions = [
-    { id: 1, text: "Flower", amount: -20 },
-    { id: 2, text: "Salary", amount: 300 },
-    { id: 3, text: "Book", amount: -10 },
-    { id: 4, text: "Camera", amount: 150 },
-];
+// Local Storage
+const localStorageTransactions = JSON.parse(localStorage.getItem("transactions"));
 
-// Transactions
-let transactions = dummyTransactions;
+// Get transactions from Local Storage or set as empty array
+let transactions = localStorage.getItem("transactions") !== null ? localStorageTransactions : [];
 
 
 
@@ -46,6 +41,8 @@ function addTransaction(eventObject) {
         displayTransaction(transaction);
         // update interface
         updateValues();
+        // update Local Storage
+        updateLocalStorage();
         // clear input
         text.value = "";
         amount.value = "";
@@ -78,8 +75,16 @@ function displayTransaction(transaction) {
 function removeTransaction(id) {
     // filter out transaction by ID
     transactions = transactions.filter(transaction => transaction.id !== id);
+    // update Local Storage
+    updateLocalStorage();
     // re-initialize application
     initializeApplication();
+}
+
+// Update Local Storage
+function updateLocalStorage() {
+    // store transactions array
+    localStorage.setItem("transactions", JSON.stringify(transactions));
 }
 
 // Initialize application
