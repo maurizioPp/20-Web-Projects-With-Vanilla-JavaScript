@@ -27,7 +27,7 @@ let songIndex = 2;
 function loadSong(song) {
     title.innerText = song;
     audio.src = `music/${song}.mp3`;
-    cover.src = `images/${song}.jpg`;
+    songCover.src = `images/${song}.jpg`;
 }
 
 // Play song
@@ -52,6 +52,58 @@ function pauseSong() {
     audio.pause();
 }
 
+// Previous song
+function previousSong() {
+    // change index
+    songIndex--;
+    // check if first song
+    if (songIndex < 0) {
+        // change index to last song
+        songIndex = songs.length - 1;
+    }
+    // load
+    loadSong(songs[songIndex]);
+    // play
+    playSong();
+}
+
+// Next song
+function nextSong() {
+    // change index
+    songIndex++;
+    // check if last song
+    if (songIndex > songs.length - 1) {
+        // change index to first song
+        songIndex = 0;
+    }
+    // load
+    loadSong(songs[songIndex]);
+    // play
+    playSong();
+}
+
+// Update progress bar
+function updateProgressBar(eventObject) {
+    // get duration and current time
+    const { duration, currentTime } = eventObject.srcElement;
+    // get progress percent
+    const progressPercent = (currentTime / duration) * 100;
+    // set progress bar width
+    progressBar.style.width = `${progressPercent}%`;
+}
+
+// Set progress bar
+function setProgressBar(eventObject) {
+    // get width of progress bar container
+    const width = this.clientWidth;
+    // get where click occured
+    const click = eventObject.offsetX;
+    // get duration
+    const duration = audio.duration;
+    // set current time
+    audio.currentTime = (click / width) * duration;
+}
+
 
 
 // EVENT LISTENERS
@@ -68,6 +120,18 @@ playButton.addEventListener("click", () => {
     }
 });
 
+// Previous and Next buttons
+previousButton.addEventListener("click", previousSong);
+nextButton.addEventListener("click", nextSong);
+
+// Update progress bar
+audio.addEventListener("timeupdate", updateProgressBar);
+
+// Set progess bar
+progressContainer.addEventListener("click", setProgressBar);
+
+// Song end
+audio.addEventListener("ended", nextSong);
 
 
 // CALLS
