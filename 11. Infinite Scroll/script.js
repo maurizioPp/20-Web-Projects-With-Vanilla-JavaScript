@@ -42,6 +42,36 @@ async function displayPosts() {
     });
 }
 
+// Load more posts
+function loadMorePosts() {
+    // show loader
+    loader.classList.add("show");
+    // hide loader adter 1 second
+    setTimeout(() => {
+        // remove class
+        loader.classList.remove("show");
+        // display more posts
+        setTimeout(() => {
+            page++;
+            displayPosts();
+        }, 300);
+    }, 1000);
+}
+
+
+
+// EVENT LISTENERS
+
+// Scroll
+window.addEventListener("scroll", () => {
+    // get scroll values
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    // check for scrolling to bottom
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+        loadMorePosts();
+    }
+});
+
 
 
 // CALLS
