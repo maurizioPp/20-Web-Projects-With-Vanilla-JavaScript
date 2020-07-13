@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Typing Game</title>
+</head>
+
+<body>
+    <!-- settings button -->
+    <button id="settings-button" class="setting-button">
+        <i class="fa fa-cog"></i>
+    </button>
+    <!-- settings form -->
+    <div id="settings" class="settings">
+        <form id="settings-form">
+            <div>
+                <label for="difficulty">Difficulty</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <!-- game -->
+    <div class="container">
+        <!-- title -->
+        <h2>Typing Game</h2>
+        <!-- word display -->
+        <h1 id="word"></h1>
+        <!-- input -->
+        <input type="text" id="text" autocomplete="off" placeholder="Type here...">
+        <!-- time -->
+        <p class="time-container">
+            Time left: <span id="time">10s</span>
+        </p>
+        <!-- score -->
+        <p class="score-container">
+            Score: <span id="score">0</span>
+        </p>
+        <!-- end game screen -->
+        <div id="end-game-container" class="end-game-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
