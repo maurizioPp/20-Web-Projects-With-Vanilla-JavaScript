@@ -7,7 +7,7 @@ const endGameElement = document.getElementById("end-game-container");
 const settingsButton = document.getElementById("settings-button");
 const settings = document.getElementById("settings");
 const settingsForm = document.getElementById("settings-form");
-const difficultySelect = document.getElementById("difficulty-select");
+const difficultySelect = document.getElementById("difficulty");
 
 
 
@@ -18,6 +18,12 @@ let score = 0;
 
 // Initial time
 let time = 10;
+
+// Difficulty
+// get from Local Storage, if not there set to medium
+let difficulty = localStorage.getItem("difficulty") !== null ? localStorage.getItem("difficulty") : localStorage.setItem("difficulty", "medium");
+// set select
+difficultySelect.value = localStorage.getItem("difficulty");
 
 // Time interval
 const timeInterval = setInterval(updateTime, 1000);
@@ -81,6 +87,8 @@ function gameOver() {
 
 
 // EVENT LISTENERS
+
+// Text input
 text.addEventListener("input", () => {
     // get input
     const insertedText = text.value;
@@ -92,11 +100,36 @@ text.addEventListener("input", () => {
         displayWord();
         // update score
         updateScore();
+        // add time
+        switch (difficulty) {
+            case "easy":
+                time += 5;
+                break;
+            case "medium":
+                time += 3;
+                break;
+            case "hard":
+                time += 2;
+                break;
+            default:
+                console.warn("Invalid difficulty setting.");
+        }
         // update time
-        time += 5;
         updateTime();
     }
 });
+
+// Settings button
+settingsButton.addEventListener("click", () => {
+    settings.classList.toggle("hide");
+});
+
+// Difficulty
+settingsForm.addEventListener("change", eventObject => {
+    selectedDifficulty = eventObject.target.value;
+    localStorage.setItem("difficulty", selectedDifficulty);
+    location.reload();
+})
 
 
 
